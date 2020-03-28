@@ -9,11 +9,13 @@ function App() {
   return (
     <Fragment>
       <Header/>
-      <Switch>
-        <Route exact path="/" component={List}/>
-        <Route exact path="/new-element" component={Add}/>
-        <Route exact path="/edit/:id" component={Edit}/>
-      </Switch>
+      <div className="container m-5">
+        <Switch>
+          <Route exact path="/" component={List}/>
+          <Route exact path="/new-element" component={Add}/>
+          <Route exact path="/edit/:id" component={Edit}/>
+        </Switch>
+      </div>
     </Fragment>
   );
 }
