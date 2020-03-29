@@ -1,0 +1,29 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "name": "Jugo de Zanahoria",
+        "quantity": "31111"
+      },
+      {
+        "id": 2,
+        "name": "Jugo de Naranja",
+        "quantity": "1"
+      },
+      {
+        "name": "Jugo de Naranja",
+        "quantity": "300",
+        "id": 3
+      },
+      {
+        "name": "Rib Eye 800g",
+        "quantity": "200",
+        "id": 4
+      },
+      {
+        "name": "Jugo de Fresa",
+        "quantity": "200",
+        "id": 5
+      }
+    ]
+  }
