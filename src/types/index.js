@@ -1,0 +1,3 @@
+export const ADD_ELEMENT = 'ADD_ELEMENT'
+export const ADD_ELEMENT_TRUE = 'ADD_ELEMENT_TRUE'
+export const ADD_ELEMENT_FALSE = 'ADD_ELEMENT_FALSE'
