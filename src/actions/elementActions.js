@@ -1,4 +1,5 @@
-import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE} from '../types'
+import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE,
+        LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE} from '../types'
 import axiosClient from '../config/axios'
 import Swal from 'sweetalert2'
 
@@ -35,5 +36,19 @@ const addElementTrue = element =>({
 
 const addElementFalse = () =>({
     type: ADD_ELEMENT_FALSE,
+    payload: true
+})
+
+//List Elements
+
+export function listElementAction(){
+    return async (dispatch) => {
+        dispatch(listElement())
+    }
+
+}
+
+const listElement = () =>({
+    type: LIST_ELEMENTS,
     payload: true
 })

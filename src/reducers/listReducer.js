@@ -1,4 +1,5 @@
-import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE} from '../types'
+import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE,
+        LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE} from '../types'
 
 const initialState = {
     list: [],
@@ -9,6 +10,7 @@ const initialState = {
 export default function(state = initialState, action) {
     switch (action.type) {
 
+        case LIST_ELEMENTS:
         case ADD_ELEMENT:
             return{
                 ...state,
