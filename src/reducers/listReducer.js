@@ -20,6 +20,12 @@ export default function(state = initialState, action) {
                 loading: false,
                 list: [...state.list, action.payload]
             }
+        case ADD_ELEMENT_FALSE:
+            return{
+                ...state,
+                loading: false,
+                error: action.payload
+            }
     
         default:
             return state;

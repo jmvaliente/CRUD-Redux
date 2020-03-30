@@ -25,6 +25,7 @@ const addElementTrue = element =>({
     payload: element
 })
 
-const addElementFalse = element =>({
-
+const addElementFalse = () =>({
+    type: ADD_ELEMENT_FALSE,
+    payload: true
 })
