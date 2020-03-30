@@ -1,5 +1,6 @@
 import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE} from '../types'
 import axiosClient from '../config/axios'
+import Swal from 'sweetalert2'
 
 //create new element
 export function createElementAction(element){
@@ -9,6 +10,11 @@ export function createElementAction(element){
         try {
             await axiosClient.post('/list', element) // add element 
             dispatch(addElementTrue(element)) // update state
+            Swal.fire( //alert success
+                'Success',
+                'Element add Success',
+                'success'
+            )
         } catch (error) {
             dispatch(addElementFalse(true))
         }

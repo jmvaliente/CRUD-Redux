@@ -1,15 +1,21 @@
 import React,{useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+
 // Action Redux
 import { createElementAction } from '../actions/elementActions'
 
-const Add = () => {
+const Add = ({history}) => { //history is a navigation props
 
     const [name,setName] = useState('')
     const [quantity,setQuantity] = useState(0)
-
+    
     //use dispatch for create a function
     const dispatch = useDispatch()
+    
+    //read state of store
+    const loading = useSelector(state => state.list.loading)
+    const error = useSelector(state => state.list.error)
+    
 
     //call the action using dispatch
     const addElement = (element) => dispatch(createElementAction(element))
@@ -26,7 +32,12 @@ const Add = () => {
             name,
             quantity
         })
+        
+        history.push('/') // Redirect to '/'
     }
+        
+        
+
 
 
     return(
@@ -72,8 +83,9 @@ const Add = () => {
                             >
                                 Add Item
                             </button>
-
                         </form>
+                        {loading ? <img src="../../public/loading.gif"></img> : null}
+                        {error ? <p className="alert alert-danger mt-2 text-center">Error</p>: null}
                     </div>
                 </div>
 
