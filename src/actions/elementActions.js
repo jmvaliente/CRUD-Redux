@@ -3,11 +3,11 @@ import axiosClient from '../config/axios'
 
 //create new element
 export function createElementAction(element){
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(addElement())
 
         try {
-            axiosClient.post('/list', element) // add element 
+            await axiosClient.post('/list', element) // add element 
             dispatch(addElementTrue(element)) // update state
         } catch (error) {
             dispatch(addElementFalse(true))
