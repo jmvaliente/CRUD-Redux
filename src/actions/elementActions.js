@@ -1,4 +1,5 @@
 import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE} from '../types'
+import axiosClient from '../config/axios'
 
 //create new element
 export function createElementAction(element){
@@ -6,7 +7,8 @@ export function createElementAction(element){
         dispatch(addElement())
 
         try {
-            dispatch(addElementTrue(element))
+            axiosClient.post('/list', element) // add element 
+            dispatch(addElementTrue(element)) // update state
         } catch (error) {
             dispatch(addElementFalse(true))
         }
