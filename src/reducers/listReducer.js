@@ -22,11 +22,19 @@ export default function(state = initialState, action) {
                 loading: false,
                 list: [...state.list, action.payload]
             }
+        case LIST_ELEMENTS_FALSE:
         case ADD_ELEMENT_FALSE:
             return{
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case LIST_ELEMENTS_TRUE:
+            return{
+                ...state,
+                loading: false,
+                list: action.payload,
+                error: null
             }
     
         default:

@@ -44,11 +44,28 @@ const addElementFalse = () =>({
 export function listElementAction(){
     return async (dispatch) => {
         dispatch(listElement())
+
+        try {
+            const respons = await axiosClient.get('/list')
+            dispatch(listSuccess(respons.data))
+        } catch (error) {
+            dispatch(listError())
+        }
     }
 
 }
 
 const listElement = () =>({
     type: LIST_ELEMENTS,
+    payload: true
+})
+
+const listSuccess = (elements) => ({
+    type: LIST_ELEMENTS_TRUE,
+    payload: elements
+})
+
+const listError = () => ({
+    type: LIST_ELEMENTS_FALSE,
     payload: true
 })
