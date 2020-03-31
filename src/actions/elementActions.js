@@ -1,5 +1,6 @@
 import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE,
-        LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE} from '../types'
+        LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE,
+        DELETE_ELEMENT, DELETE_ELEMENT_TRUE, DELETE_ELEMENT_FALSE} from '../types'
 import axiosClient from '../config/axios'
 import Swal from 'sweetalert2'
 
@@ -27,9 +28,8 @@ const addElement = () =>({
     payload: true
 })
 
-//Add Element True
 
-const addElementTrue = element =>({
+const addElementTrue = element =>({ //Add Element
     type: ADD_ELEMENT_TRUE,
     payload: element
 })
@@ -68,4 +68,18 @@ const listSuccess = (elements) => ({
 const listError = () => ({
     type: LIST_ELEMENTS_FALSE,
     payload: true
+})
+
+// Delete Element
+
+export function deleteElementAction(id){
+    return async (dispatch) => {
+        dispatch(deleteElement(id))
+        console.log(id)
+    }
+}
+
+const deleteElement = (id) => ({
+    type: DELETE_ELEMENT,
+    payload: id
 })

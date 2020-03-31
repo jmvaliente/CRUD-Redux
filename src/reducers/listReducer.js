@@ -1,10 +1,12 @@
 import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE,
-        LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE} from '../types'
+        LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE,
+        DELETE_ELEMENT, DELETE_ELEMENT_TRUE, DELETE_ELEMENT_FALSE} from '../types'
 
 const initialState = {
     list: [],
     error: null,
-    loading: false
+    loading: false,
+    deleteElement: null
 }
 
 export default function(state = initialState, action) {
@@ -35,6 +37,11 @@ export default function(state = initialState, action) {
                 loading: false,
                 list: action.payload,
                 error: null
+            }
+        case DELETE_ELEMENT:
+            return{
+                ...state,
+                deleteElement: action.payload
             }
     
         default:
