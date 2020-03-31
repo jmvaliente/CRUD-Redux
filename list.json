@@ -1,46 +1,6 @@
 {
   "list": [
     {
-      "id": 1,
-      "name": "Jugo de Zanahoria",
-      "quantity": "31111"
-    },
-    {
-      "id": 2,
-      "name": "Jugo de Naranja",
-      "quantity": "1"
-    },
-    {
-      "name": "Jugo de Naranja",
-      "quantity": "300",
-      "id": 3
-    },
-    {
-      "name": "Rib Eye 800g",
-      "quantity": "200",
-      "id": 4
-    },
-    {
-      "name": "Jugo de Fresa",
-      "quantity": "200",
-      "id": 5
-    },
-    {
-      "name": "Bolsas",
-      "quantity": 1,
-      "id": 6
-    },
-    {
-      "name": "Jose Miguel",
-      "quantity": 2,
-      "id": 7
-    },
-    {
-      "name": "Jose Miguel",
-      "quantity": 2,
-      "id": 8
-    },
-    {
       "name": "Jose Miguel",
       "quantity": 20,
       "id": 9
@@ -314,16 +274,6 @@
       "name": "Jose Miguel",
       "quantity": 20,
       "id": 63
-    },
-    {
-      "name": "Jose Miguel",
-      "quantity": 20,
-      "id": 64
-    },
-    {
-      "name": "Prueba",
-      "quantity": 1,
-      "id": 65
     }
   ]
 }

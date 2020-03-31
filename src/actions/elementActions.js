@@ -75,11 +75,32 @@ const listError = () => ({
 export function deleteElementAction(id){
     return async (dispatch) => {
         dispatch(deleteElement(id))
-        console.log(id)
+         try {
+             await axiosClient.delete(`/list/${id}`)
+             dispatch(deleteSuccess())
+
+             Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+              
+         } catch (error) {
+             dispatch(deleteError())
+         }
     }
 }
 
 const deleteElement = (id) => ({
     type: DELETE_ELEMENT,
     payload: id
+})
+
+const deleteSuccess = () => ({
+    type: DELETE_ELEMENT_TRUE
+})
+
+const deleteError = () => ({
+    type: DELETE_ELEMENT_FALSE,
+    payload: true
 })

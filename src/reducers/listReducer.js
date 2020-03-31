@@ -24,6 +24,7 @@ export default function(state = initialState, action) {
                 loading: false,
                 list: [...state.list, action.payload]
             }
+        case DELETE_ELEMENT_FALSE:
         case LIST_ELEMENTS_FALSE:
         case ADD_ELEMENT_FALSE:
             return{
@@ -42,6 +43,12 @@ export default function(state = initialState, action) {
             return{
                 ...state,
                 deleteElement: action.payload
+            }
+        case DELETE_ELEMENT_TRUE:
+            return{
+                ...state,
+                list: state.list.filter(element => element.id !== state.deleteElement),
+                deleteElement: null
             }
     
         default:
