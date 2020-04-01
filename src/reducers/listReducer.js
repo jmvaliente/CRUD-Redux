@@ -1,12 +1,14 @@
 import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE,
         LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE,
-        DELETE_ELEMENT, DELETE_ELEMENT_TRUE, DELETE_ELEMENT_FALSE} from '../types'
+        DELETE_ELEMENT, DELETE_ELEMENT_TRUE, DELETE_ELEMENT_FALSE,
+        EDIT_ELEMENT, START_EDIT_ELEMENT, EDIT_ELEMENT_TRUE, EDIT_ELEMENT_FALSE} from '../types'
 
 const initialState = {
     list: [],
     error: null,
     loading: false,
-    deleteElement: null
+    deleteElement: null,
+    editElement: null
 }
 
 export default function(state = initialState, action) {
@@ -49,6 +51,18 @@ export default function(state = initialState, action) {
                 ...state,
                 list: state.list.filter(element => element.id !== state.deleteElement),
                 deleteElement: null
+            }
+        case EDIT_ELEMENT:
+            return{
+                ...state,
+                editElement: action.payload
+            }
+        case EDIT_ELEMENT_TRUE:
+            return{
+                ...state,
+                list: state.list.map(element =>
+                    element.id === action.payload.id ? element = action.payload : element),
+                editElement: null
             }
     
         default:

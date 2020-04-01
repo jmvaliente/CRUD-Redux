@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 
 // Redux
 import { useDispatch } from 'react-redux'
-import  { deleteElementAction } from '../actions/elementActions'
+import  { deleteElementAction, editElementAction } from '../actions/elementActions'
 
 const Element = ({element}) =>{
 
@@ -30,11 +30,17 @@ const Element = ({element}) =>{
 
     }
 
+    const buttonEdit = (element) =>{
+        dispatch (editElementAction(element))
+    }
+
     return(
         <tr>
             <td>{element.name}</td>
             <td>{element.quantity}</td>
-            <td><Link to = {`/edit/${element.id}`} className="btn btn-primary mr-2">
+            <td><Link to = {`/edit/${element.id}`}
+                    className="btn btn-primary mr-2"
+                    onClick={()=>buttonEdit(element)}>
                 Edit</Link>
                 <button
                     type="button"

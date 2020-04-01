@@ -1,6 +1,7 @@
 import {ADD_ELEMENT, ADD_ELEMENT_TRUE, ADD_ELEMENT_FALSE,
         LIST_ELEMENTS, LIST_ELEMENTS_TRUE, LIST_ELEMENTS_FALSE,
-        DELETE_ELEMENT, DELETE_ELEMENT_TRUE, DELETE_ELEMENT_FALSE} from '../types'
+        DELETE_ELEMENT, DELETE_ELEMENT_TRUE, DELETE_ELEMENT_FALSE,
+        EDIT_ELEMENT, START_EDIT_ELEMENT ,EDIT_ELEMENT_TRUE, EDIT_ELEMENT_FALSE} from '../types'
 import axiosClient from '../config/axios'
 import Swal from 'sweetalert2'
 
@@ -84,7 +85,7 @@ export function deleteElementAction(id){
                 'Your file has been deleted.',
                 'success'
               )
-              
+
          } catch (error) {
              dispatch(deleteError())
          }
@@ -103,4 +104,42 @@ const deleteSuccess = () => ({
 const deleteError = () => ({
     type: DELETE_ELEMENT_FALSE,
     payload: true
+})
+
+// Edit element
+
+export function editElementAction(element){
+    return async dispatch => {
+        dispatch(editElement(element))
+    }
+}
+
+const editElement = (element) =>({
+    type: EDIT_ELEMENT,
+    payload: element
+})
+
+//Start Edit
+
+export function startEditElementAction(element){
+    return async dispatch =>{
+        dispatch(startEditElement(element))
+        
+        try {
+            await axiosClient.put(`/list/${element.id}`, element)
+            dispatch(editSuccess(element))
+        } catch (error) {
+            
+        }
+    }
+} 
+
+const startEditElement = (element) =>({
+    type: START_EDIT_ELEMENT,
+    payload: element
+})
+
+const editSuccess = (element) =>({
+    type: EDIT_ELEMENT_TRUE,
+    payload: element
 })
