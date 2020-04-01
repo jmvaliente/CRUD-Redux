@@ -129,7 +129,7 @@ export function startEditElementAction(element){
             await axiosClient.put(`/list/${element.id}`, element)
             dispatch(editSuccess(element))
         } catch (error) {
-            
+            dispatch(editError())
         }
     }
 } 
@@ -142,4 +142,9 @@ const startEditElement = (element) =>({
 const editSuccess = (element) =>({
     type: EDIT_ELEMENT_TRUE,
     payload: element
+})
+
+const editError = () =>({
+    type: EDIT_ELEMENT_FALSE,
+    payload: true
 })

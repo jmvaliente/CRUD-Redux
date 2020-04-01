@@ -29,6 +29,7 @@ export default function(state = initialState, action) {
         case DELETE_ELEMENT_FALSE:
         case LIST_ELEMENTS_FALSE:
         case ADD_ELEMENT_FALSE:
+        case EDIT_ELEMENT_FALSE:
             return{
                 ...state,
                 loading: false,
