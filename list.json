@@ -1,21 +1,6 @@
 {
   "list": [
     {
-      "name": "Elemento",
-      "quantity": "12222322",
-      "id": 1
-    },
-    {
-      "name": "Prueba22",
-      "quantity": "233345335",
-      "id": 2
-    },
-    {
-      "name": "selemento nuevo",
-      "quantity": "230543",
-      "id": 3
-    },
-    {
       "name": "prueba 5",
       "quantity": "144015",
       "id": 4
@@ -29,11 +14,6 @@
       "name": "23",
       "quantity": "23",
       "id": 6
-    },
-    {
-      "name": "wqeqw",
-      "quantity": 2,
-      "id": 7
     },
     {
       "name": "pruebas",
