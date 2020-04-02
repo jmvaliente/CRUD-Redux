@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 // Action Redux
 import { createElementAction } from '../actions/elementActions'
+import { alertAction, alertActionNull } from '../actions/alertActions'
 
 const Add = ({history}) => { //history is a navigation props
 
@@ -15,6 +16,8 @@ const Add = ({history}) => { //history is a navigation props
     //read state of store
     const loading = useSelector(state => state.list.loading)
     const error = useSelector(state => state.list.error)
+    const alert = useSelector(state => state.alert)
+    
     
 
     //call the action using dispatch
@@ -26,6 +29,18 @@ const Add = ({history}) => { //history is a navigation props
         // validate form
 
         // validate error
+        if(name.trim()==='' || quantity <= 0){
+            
+            const alert = {
+                msg: 'Name and Quantity is need',
+                class: 'alert alert-danger text-center'
+            }
+            dispatch( alertAction(alert) )
+            return
+        }else{
+            dispatch(alertActionNull())
+        }
+
 
         // Create Element
         addElement({
@@ -48,6 +63,7 @@ const Add = ({history}) => { //history is a navigation props
                         <h2 clasname="text-center mb-4 font-weight-bold">
                             Add item
                         </h2>
+                            {alert.alert ? <p className={alert.msg.class}>{alert.msg.msg}</p> :null}
                         <form
                             onSubmit={submitNewElement}
                         >
@@ -84,7 +100,7 @@ const Add = ({history}) => { //history is a navigation props
                                 Add Item
                             </button>
                         </form>
-                        {loading ? <img src="../../public/loading.gif"></img> : null}
+                        {loading ? <p>Loading...</p> : null}
                         {error ? <p className="alert alert-danger mt-2 text-center">Error</p>: null}
                     </div>
                 </div>

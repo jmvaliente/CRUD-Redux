@@ -16,6 +16,7 @@ export default function(state = initialState, action) {
 
         case LIST_ELEMENTS:
         case ADD_ELEMENT:
+        case START_EDIT_ELEMENT:
             return{
                 ...state,
                 loading: action.payload

@@ -13,7 +13,7 @@ const List = () => {
 
         const chargeList = () => dispatch(listElementAction())
         chargeList()
-
+        // eslint-disable-next-line
     },[])
 
     const elements = useSelector(state => state.list.list)
